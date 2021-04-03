@@ -12,7 +12,7 @@ public class EnemyMover : MonoBehaviour
 
   void Start()
   {
-    enemy = FindObjectOfType<Enemy>();
+    enemy = GetComponent<Enemy>();
   }
 
   void OnEnable()
@@ -31,12 +31,13 @@ public class EnemyMover : MonoBehaviour
     foreach (GameObject tile in tiles)
     {
       Waypoint waypoint = tile.GetComponent<Waypoint>();
-      if (waypoint)
+      if (waypoint != null)
       {
         path.Add(waypoint);
       }
-
     }
+
+    path.Sort((a, b) => a.Order.CompareTo(b.Order));
   }
 
   void ReturnToStart()

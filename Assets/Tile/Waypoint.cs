@@ -6,8 +6,10 @@ public class Waypoint : MonoBehaviour
 {
   [SerializeField] bool isPlaceable = false;
   [SerializeField] Tower tower;
+  [SerializeField] int order;
 
   public bool IsPlaceable { get { return isPlaceable; } }
+  public int Order { get { return order; } }
 
   void OnMouseDown()
   {
